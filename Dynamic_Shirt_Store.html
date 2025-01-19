@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Shirt Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .shirt {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 1rem;
+            padding: 1rem;
+            width: 300px;
+            background-color: white;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .shirt img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .shirt h2 {
+            font-size: 1.5rem;
+            margin: 0.5rem 0;
+        }
+
+        .shirt p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .shirt .price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .shirt button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .shirt button:hover {
+            background-color: #555;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background-color: #333;
+            color: white;
+            margin-top: 2rem;
+        }
+    </style>
+    <script>
+        let cart = [];
+
+        function addToCart(product) {
+            cart.push(product);
+            alert(`${product.name} has been added to your cart!`);
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+
+            let total = cart.reduce((sum, item) => sum + item.price, 0).toFixed(2);
+            alert(`Your total is $${total}. Thank you for your purchase!`);
+            cart = [];
+        }
+    </script>
+</head>
+<body>
+
+<header>
+    <h1>Dynamic Shirt Store</h1>
+    <p>Select and purchase your favorite shirts with ease!</p>
+</header>
+
+<div class="container">
+    <div class="shirt">
+        <img src="shirt1.jpg" alt="Classic White Shirt">
+        <h2>Classic White Shirt</h2>
+        <p>Perfect for any occasion.</p>
+        <div class="price">$19.99</div>
+        <button onclick="addToCart({name: 'Classic White Shirt', price: 19.99})">Add to Cart</button>
+    </div>
+
+    <div class="shirt">
+        <img src="shirt2.jpg" alt="Casual Blue Shirt">
+        <h2>Casual Blue Shirt</h2>
+        <p>Comfortable and stylish.</p>
+        <div class="price">$24.99</div>
+        <button onclick="addToCart({name: 'Casual Blue Shirt', price: 24.99})">Add to Cart</button>
+    </div>
+
+    <div class="shirt">
+        <img src="shirt3.jpg" alt="Graphic Tee">
+        <h2>Graphic Tee</h2>
+        <p>Show off your personality.</p>
+        <div class="price">$15.99</div>
+        <button onclick="addToCart({name: 'Graphic Tee', price: 15.99})">Add to Cart</button>
+    </div>
+</div>
+
+<div style="text-align: center; margin-top: 20px;">
+    <button style="background-color: #28a745; color: white; padding: 1rem; border: none; border-radius: 5px; cursor: pointer;" onclick="checkout()">Checkout</button>
+</div>
+
+<footer>
+    <p>&copy; 2025 Dynamic Shirt Store. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
